@@ -19,3 +19,61 @@
 ## Mobile
 ![untitled (1)](https://user-images.githubusercontent.com/38055818/84096511-21962080-a9d0-11ea-99ca-b34501ca4386.png)
 
+### Validação de dados com celebrate e Uploads de arquivos
+
+```sh
+
+  ## Routes.ts
+  import {celebrate, Joi} from 'celebrate';
+  /*Upload de arquivo e a validação dos campos são feitos na rota da api*/
+  routes.post(
+    '/points', 
+    upload.single('image'), 
+    celebrate({
+        body: Joi.object().keys({
+            name: Joi.string().required(),
+            email: Joi.string().required().email(),
+            whatsapp: Joi.string().required(),
+            latitude: Joi.number().required(),
+            longitude: Joi.number().required(),
+            city: Joi.string().required(),
+            uf: Joi.string().required().max(2),
+            items: Joi.string().required(),
+
+        })
+    }),
+    pointsControllers.create
+    );
+```
+
+
+```sh
+
+  ## Server.ts
+  import path from 'path';
+  import {errors} from 'celebrate';
+  
+  app.use('/uploads', express.static(path.resolve(__dirname,'..', 'uploads'))) //Path dos arquivos salvos.
+  app.use(errors()); //Usado para reportar erros de validação
+
+```
+
+```sh
+
+  ## Multer.ts
+  /*Configuração do Multer.js para upload de arquivo*/
+  import multer from 'multer';
+  import path from 'path';
+  import crypto from 'crypto';
+  
+  export default{
+      storage: multer.diskStorage({
+          destination: path.resolve(__dirname,'..','..', 'uploads'), //Diretório onde o arquivo será salvo.
+          filename(request, file, callback){ //renomeação do arquivo
+              const hash = crypto.randomBytes(6).toString('hex'); 
+              const fileName = `${hash}-${file.originalname}`;
+              callback(null, fileName);
+          },
+      })
+  }
+```
