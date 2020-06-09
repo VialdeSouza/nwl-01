@@ -62,7 +62,9 @@ import MapView, { Marker } from 'react-native-maps'
 ### Usando React-leaflet para renderização de mapa
 
 ```sh
-   <Map center={initialPosition} zoom={15} onclick={handleMapClick}>
+  import { Map, TileLayer, Marker } from 'react-leaflet';
+  
+  <Map center={initialPosition} zoom={15} onclick={handleMapClick}>
        <TileLayer
            attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
