@@ -56,7 +56,7 @@ import MapView, { Marker } from 'react-native-maps'
         </View>
 ```
 
-
+## Backend Express.js
 ### Validação de dados com celebrate e Uploads de arquivos
 
 ```sh
@@ -114,4 +114,48 @@ import MapView, { Marker } from 'react-native-maps'
           },
       })
   }
+```
+
+## Seeds e Migrations com Knex.js
+
+```sh
+  ## Migrations com relacionamento
+  import Knex from 'knex';
+  
+  ## Script de criação
+  export async function up(knex: Knex) {
+      return knex.schema.createTable('point_items', table => {
+          table.increments('id').primary(); ## Autoincremento do campo
+          table.integer('point_id')
+              .notNullable()
+              .references('id') ## Realacionamento com a tabela Points
+              .inTable('points');
+          table.integer('item_id')
+          .notNullable()
+          .references('id')  ## Realacionamento com a tabela Items
+          .inTable('items');
+
+      })
+  };
+
+ ## Script de drop
+  export async function down(knex: Knex) {
+      return knex.schema.dropTable('point_items');
+  };
+```
+```sh
+ ## Seeds de insserção na tabela items
+ import Knex from "knex"
+
+ export async function seed(Knex: Knex){
+ await   Knex('items').insert([
+         { title:'Lâmpadas', image:'lampadas.svg'},
+         { title:'Pilhas e Baterias', image:'baterias.svg'},
+         { title:'Papéis e Papelao', image:'papeis-papelao.svg'},
+         { title:'Resíduos Eletrônicos', image:'eletronicos.svg'},
+         { title:'Resíduos Orgânicos', image:'organicos.svg'},
+         { title:'Óleo de cozinha', image:'oleo.svg'},
+
+     ])
+ }
 ```
