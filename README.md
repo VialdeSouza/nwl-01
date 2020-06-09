@@ -3,7 +3,17 @@
 #### Ecoleta.
 
 ## Sobre o projeto
-<p>Projeto construído durante a semana do Next Level Week. A semana é um curso elaborado pela RocketSeat. Durante a semana desenvolvemos um backend express, uma aplicação web com ReactJS e uma app mobile com React Native. Os maiores aprendizados dessa semana foram typeScript, boas práticas de progrmação, validação de dados, upload de arquivos, seeds, migrations, uso de mapas e APIs externas.</p>
+<p>Esse projeto foi construído durante o Next Level Week 1. A semana é um curso elaborado pela RocketSeat, na qual semana desenvolvemos um backend express, uma aplicação web com ReactJS e uma app mobile com React Native. 
+ Meus maiores aprendizados dessa semana foram: </p> 
+
+- [TypeScript](https://www.typescriptlang.org/)
+- [Validação de dados com Celebrate](https://www.npmjs.com/package/celebrate)
+- [Upload de arquivos com Multer.js](https://www.npmjs.com/package/multer)
+- [Seeds e Migrations Knex.js](http://knexjs.org/)
+- [React-native-maps](https://www.npmjs.com/package/react-native-maps)
+- [React-leaflet para renderização de mapa](https://react-leaflet.js.org/)
+- Consumir APIs externas
+- Boas práticas de programação =)
 
 
 ## Mobile
