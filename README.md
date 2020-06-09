@@ -144,7 +144,7 @@ import MapView, { Marker } from 'react-native-maps'
   };
 ```
 ```sh
- ## Seeds de insserção na tabela items
+ ## Seeds de inserção na tabela items
  import Knex from "knex"
 
  export async function seed(Knex: Knex){
