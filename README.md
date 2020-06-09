@@ -7,4 +7,5 @@
 
 
 ## Mobile
-![untitled (1)](https://user-images.githubusercontent.com/38055818/84096312-a0d72480-a9cf-11ea-97d4-1f8a71e35d58.png)
+![untitled (1)](https://user-images.githubusercontent.com/38055818/84096511-21962080-a9d0-11ea-99ca-b34501ca4386.png)
+
